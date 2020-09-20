@@ -1,0 +1,14 @@
+kafka:
+  servers:
+    - kafka://kafka-service:29092
+
+mongo:
+  host: db
+  port: 20017
+  database: horton
+  username: admin
+  password: admin_password
+
+service:
+  api_endpoint: https://www.alphavantage.co/
+  api_key: <token>
