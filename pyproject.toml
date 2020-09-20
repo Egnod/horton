@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "horton"
-version = "0.0.2"
+version = "0.0.3"
 description = ""
 authors = ["Alexander Lavrov <internal@egnod.dev>"]
 license = "MIT"
