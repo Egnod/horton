@@ -1,14 +1,14 @@
 kafka:
   servers:
-    - kafka://kafka-service:29092
+    - kafka://localhost:9092
 
 mongo:
-  host: db
+  host: localhost
   port: 20017
   database: horton
   username: admin
   password: admin_password
 
 service:
-  api_endpoint: https://www.alphavantage.co/
-  api_key: <token>
+  apiendpoint: https://www.alphavantage.co/
+  apikey: <token>
