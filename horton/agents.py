@@ -32,7 +32,7 @@ async def collect_security_overview(
 
             security_overview = await client.get_security_overview(event.symbol)
 
-            await SecurityCRUD.update_one({"symbol": event.symbol}, security_overview)
+            await SecurityCRUD.update_one({"symbol": event.symbol, "exchange": event.exchange}, security_overview)
 
             yield True
 
