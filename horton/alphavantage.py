@@ -23,10 +23,10 @@ class AlphaVantageClient:
 
     @logger.catch
     def _format_fields(self, data: Dict[str, Any]) -> Dict[str, Any]:
-        formatted_data = data.copy()
+        formatted_data = {}
 
-        for field in data.keys():
-            formatted_data[stringcase.snakecase(field)] = data.get(field)
+        for field, item in data.items():
+            formatted_data[stringcase.snakecase(field)] = item
 
         return formatted_data
 
@@ -55,10 +55,11 @@ class AlphaVantageClient:
 
         securities = data.to_dict("records")
 
-        for security in securities:
+        for index, security in enumerate(securities):
             security = self._format_fields(security)
-
             security["_type"] = "physical"
+
+            securities[index] = security
 
         return securities
 
