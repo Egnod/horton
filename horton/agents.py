@@ -54,9 +54,9 @@ async def collect_securities(stream: StreamT[None]) -> AsyncIterable[bool]:
                     upsert=True,
                 )
 
-                """await collect_security_overview.cast(
+                await collect_security_overview.cast(
                     CollectSecurityOverview(symbol=security["symbol"], exchange=security["exchange"])
-                )"""
+                )
 
             yield True
 
