@@ -28,7 +28,7 @@ class AlphaVantageClient:
         for field in data.keys():
             formatted_data[stringcase.snakecase(field)] = data.get(field)
 
-        return data
+        return formatted_data
 
     @logger.catch
     async def _construct_query(
@@ -41,6 +41,9 @@ class AlphaVantageClient:
             params={"function": function, **kwargs, **self._query_params},
         ) as response:
             data = (await response.json()) if to_json else (await response.text())
+
+            if to_json:
+                data = self._format_fields(data)
 
         return data
 
